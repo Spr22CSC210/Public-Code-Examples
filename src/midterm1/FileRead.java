@@ -21,25 +21,7 @@ public class FileRead {
         }
 
         scanner.close();
-    }
 
-    /*
-     * Another way of doing the same thing.
-     */
-    // public static void main(String[] args) {
-    // Scanner fileInput = null;
-    //
-    // try {
-    // fileInput = new Scanner(new File("TestCases/InputTest01"));
-    // } catch (FileNotFoundException e) {
-    // e.printStackTrace();
-    // }
-    //
-    // while (fileInput.hasNext()) {
-    // System.out.println(fileInput.nextLine());
-    // }
-    //
-    // fileInput.close();
-    // }
+    }
 
 }

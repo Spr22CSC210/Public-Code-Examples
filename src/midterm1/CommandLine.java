@@ -8,7 +8,6 @@ package midterm1;
  * for 'program arguments' write out your list of arguments. Each
  * argument should be separated by a space.
  */
-
 public class CommandLine {
 
     public static void main(String[] whatever) {
