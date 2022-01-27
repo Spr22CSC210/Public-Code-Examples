@@ -20,7 +20,12 @@ public class Repeat {
      * becomes {1, 1, 2, 2, 3, 3}
      */
     public static void repeat(Queue<Integer> q) {
-
+        int size = q.size();
+        for (int i = 0; i < size; i++) {
+            int value = q.remove();
+            q.add(value);
+            q.add(value);
+        }
     }
 
 }
