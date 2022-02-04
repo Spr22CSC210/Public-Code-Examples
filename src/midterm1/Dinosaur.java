@@ -18,6 +18,14 @@ public class Dinosaur {
         this.color = color;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
         return "Hi, I'm " + name + " and I am " + age + " years old. I love "
                 + favoriteFood;

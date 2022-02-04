@@ -7,7 +7,7 @@ public class StaticExample {
 
     public StaticExample(int instanceInt) {
         this.instanceInt = instanceInt;
-        staticInt = instanceInt;
+        StaticExample.staticInt = instanceInt;
     }
 
     public void incrementInstanceInt() {
