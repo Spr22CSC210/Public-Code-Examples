@@ -10,8 +10,17 @@ public class Salesperson extends Employee {
         this.salesAmount = salesAmount;
     }
 
+    @Override
     public double getSalary() {
         return super.getSalary() + salesAmount * COMMISSION;
+    }
+
+    public String getSalesPitch() {
+        return "Buy buy buy - N'Sync";
+    }
+
+    public static String motto() {
+        return "I am a Salesperson.";
     }
 
 }

@@ -10,7 +10,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
@@ -20,6 +20,10 @@ public class Employee {
 
     public String toString() {
         return name + " earns a salary of " + salary;
+    }
+
+    public static String motto() {
+        return "I am an Employee.";
     }
 
 }
