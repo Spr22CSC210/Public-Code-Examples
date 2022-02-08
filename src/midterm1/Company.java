@@ -14,6 +14,7 @@ public class Company {
         Employee arjun = new Salesperson("Arjun", 30000, 200000);
         Salesperson a = ((Salesperson) arjun);
 
+
         // The below does not work, since Salesperson is a subclass of Employee
         // Salesperson tiamara = new Employee("Tiamara", 45000);
 
