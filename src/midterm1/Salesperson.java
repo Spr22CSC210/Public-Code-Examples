@@ -23,4 +23,14 @@ public class Salesperson extends Employee {
         return "I am a Salesperson.";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Salesperson) {
+            Salesperson other = (Salesperson) o;
+            return super.equals(o)
+                    && this.salesAmount == other.salesAmount;
+        }
+        return false;
+    }
+
 }

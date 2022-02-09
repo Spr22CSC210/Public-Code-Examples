@@ -26,4 +26,14 @@ public class Employee {
         return "I am an Employee.";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Employee) {
+            Employee otherEmployee = (Employee) o;
+            return this.name.equals(otherEmployee.name)
+                    && this.salary == otherEmployee.salary;
+        }
+        return false;
+    }
+
 }
