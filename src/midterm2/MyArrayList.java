@@ -2,7 +2,7 @@ package midterm2;
 
 public class MyArrayList {
 
-    private static final int DEFAULT_SIZE = 10;
+    private static final int DEFAULT_SIZE = 100;
     private int[] array;
     private int size;
 
@@ -19,54 +19,82 @@ public class MyArrayList {
         return size == 0;
     }
 
+    private void growArray() {
+        int[] newArray = new int[2 * array.length];
+        for (int i = 0; i < size; i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
+    }
+
     public void add(int value) {
+        add(size, value);
+    }
+
+    public void add(int index, int element) {
+        if (index > size) {
+            throw new IllegalArgumentException(
+                    "Index must be less than or equal to size.");
+        }
         if (size >= array.length) {
             growArray();
         }
-        array[size] = value;
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = element;
         size++;
     }
 
-    public void add(int index, Integer element) {
-        if (size >= array.length) {
-            growArray();
-        }
-        // TODO Auto-generated method stub
-
-    }
-
     public boolean contains(Object o) {
-        // TODO Auto-generated method stub
+        for (int i = 0; i < size; i++) {
+            if (o.equals(array[i])) {
+                return true;
+            }
+        }
         return false;
     }
 
     public void clear() {
-        // TODO Auto-generated method stub
-
+        size = 0;
     }
 
-    public Integer get(int index) {
-        // TODO Auto-generated method stub
-        return null;
+    public int get(int index) {
+        if (index >= size) {
+            throw new IllegalArgumentException("Index must be less than size.");
+        }
+        return array[index];
     }
 
-    public Integer set(int index, Integer element) {
-        // TODO Auto-generated method stub
-        return null;
+    public int set(int index, int element) {
+        if (index >= size) {
+            throw new IllegalArgumentException("Index must be less than size.");
+        }
+        int value = array[index];
+        array[index] = element;
+        return value;
     }
 
-    public Integer remove(int index) {
-        // TODO Auto-generated method stub
-        return null;
+    public int remove(int index) {
+        if (index >= size) {
+            throw new IllegalArgumentException("Index must be less than size.");
+        }
+        int result = array[index];
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+        return result;
     }
 
     public boolean remove(Object o) {
-        // TODO Auto-generated method stub
+        for (int i = 0; i < size; i++) {
+            if (o.equals(array[i])) {
+                remove(i);
+                return true;
+            }
+        }
         return false;
-    }
-
-    private void growArray() {
-
     }
 
 }
