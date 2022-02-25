@@ -31,6 +31,17 @@ public class MyArrayList {
         add(size, value);
     }
 
+    public int remove(int index) {
+        if (index >= size) {
+            throw new IllegalArgumentException("Index must be less than size.");
+        }
+        int result = array[index];
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+        return result;
+    }
     public void add(int index, int element) {
         if (index > size) {
             throw new IllegalArgumentException(
@@ -75,24 +86,39 @@ public class MyArrayList {
         return value;
     }
 
-    public int remove(int index) {
-        if (index >= size) {
-            throw new IllegalArgumentException("Index must be less than size.");
-        }
-        int result = array[index];
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        size--;
-        return result;
-    }
-
     public boolean remove(Object o) {
         for (int i = 0; i < size; i++) {
             if (o.equals(array[i])) {
                 remove(i);
                 return true;
             }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        String result = "{ ";
+        for (int i = 0; i < size; i++) {
+            result += array[i] + ", ";
+        }
+        result += "}";
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof MyArrayList) {
+            MyArrayList list = (MyArrayList) o;
+            if (list.size != size) {
+                return false;
+            }
+            for (int i = 0; i < size; i++) {
+                if (list.array[i] != array[i]) {
+                    return false;
+                }
+            }
+            return true;
         }
         return false;
     }
