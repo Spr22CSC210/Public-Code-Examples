@@ -28,20 +28,13 @@ public class MyArrayList {
     }
 
     public void add(int value) {
-        add(size, value);
+        if (size >= array.length) {
+            growArray();
+        }
+        array[size] = value;
+        size++;
     }
 
-    public int remove(int index) {
-        if (index >= size) {
-            throw new IllegalArgumentException("Index must be less than size.");
-        }
-        int result = array[index];
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        size--;
-        return result;
-    }
     public void add(int index, int element) {
         if (index > size) {
             throw new IllegalArgumentException(
@@ -94,6 +87,18 @@ public class MyArrayList {
             }
         }
         return false;
+    }
+
+    public int remove(int index) {
+        if (index >= size) {
+            throw new IllegalArgumentException("Index must be less than size.");
+        }
+        int result = array[index];
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+        return result;
     }
 
     @Override
