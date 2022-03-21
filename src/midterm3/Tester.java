@@ -9,6 +9,9 @@ public class Tester {
         box.put(72.345);
         System.out.println(box);
         Double y = box.get() + 78.2345456;
+
+        GenericBox<Integer> b = new GenericBox<>(12);
+        GenericBox<String> s = new GenericBox<>("X");
     }
 
 }

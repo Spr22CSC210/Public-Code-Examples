@@ -1,8 +1,12 @@
 package midterm3;
 
+import org.w3c.dom.Node;
+
 public class GenericBox<E> {
 
     private E item;
+
+    private Node front;
 
     public GenericBox(E item) {
         this.item = item;
