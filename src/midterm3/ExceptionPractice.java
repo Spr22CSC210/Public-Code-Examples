@@ -1,5 +1,7 @@
 package midterm3;
 
+import java.util.Scanner;
+
 /*
  * We used this file to demonstrate Exceptions: throwing exceptions, try-catch.
  * We also leave a diagram for a callstack at the bottom of the file.
@@ -16,13 +18,13 @@ public class ExceptionPractice {
     }
 
     public static void middleFunction() {
-        try {
-            lastFunction(-2);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        // try {
+        // lastFunction(-2);
+        // } catch (IllegalArgumentException e) {
+        // System.out.println(e.getMessage());
+        // }
 
-        // lastFunction(6);
+        lastFunction(6);
     }
 
     public static void lastFunction(int age) {
@@ -31,13 +33,12 @@ public class ExceptionPractice {
         }
 
         try {
-            int x = 6 / 1;
-            // java.util.Scanner y = null;
-            // y.hasNext();
-        } catch (NullPointerException | ArithmeticException e) {
-            System.out.println(e.getMessage());
+            int x = 6 / 0;
+            Scanner y = null;
+            y.hasNext();
+        } catch (NullPointerException e) {
+            System.out.println("Null Pointer");
         }
-
     }
 
 }
