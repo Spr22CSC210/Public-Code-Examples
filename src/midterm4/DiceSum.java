@@ -23,7 +23,7 @@ public class DiceSum {
             if (desiredSum == 0) {
                 System.out.println(soFar);
             }
-        } else {
+        } else if (numDice <= desiredSum && numDice * 6 >= desiredSum) {
             for (int i = 1; i <= 6; i++) {
                 // Choose
                 soFar.add(i);
