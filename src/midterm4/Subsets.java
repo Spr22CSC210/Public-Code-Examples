@@ -32,15 +32,17 @@ public class Subsets {
             System.out.println(soFar);
         } else {
             Character choice = chars.first();
-            
             chars.remove(choice);
             
+            // Don't include the item in our set
             printHelper(chars, soFar);
-            
+
+            // Do want to include the item in our set
             soFar.add(choice);
             printHelper(chars, soFar);
 
             soFar.remove(choice);
+            chars.add(choice);
         }
     }
 }
